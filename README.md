@@ -97,7 +97,7 @@ sudo systemctl status ssh-session-agent.service --no-pager
 
 To install and start in one controlled step, add `--start`.
 
-See [docs/installation.md](docs/installation.md) and [docs/phase7-mvp.md](docs/phase7-mvp.md).
+See [docs/installation.md](docs/installation.md), [docs/runbook.md](docs/runbook.md) and [docs/phase7-mvp.md](docs/phase7-mvp.md).
 
 ## Preflight
 
