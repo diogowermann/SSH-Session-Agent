@@ -1,0 +1,13 @@
+{
+  "api_base_url": "https://rdp-api.example.invalid",
+  "server_id": "00000000-0000-0000-0000-000000000000",
+  "agent_secret": "replace-with-a-long-per-server-secret",
+  "state_dir": "/var/lib/ssh-session-agent",
+  "poll_seconds": 10,
+  "snapshot_seconds": 30,
+  "request_timeout_seconds": 10,
+  "auth_match_window_seconds": 180,
+  "max_batch_events": 100,
+  "journal_unit": null,
+  "ca_file": null
+}
