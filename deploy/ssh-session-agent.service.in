@@ -1,0 +1,37 @@
+[Unit]
+Description=SSH Session Agent
+Documentation=https://github.com/diogowermann/SSH-Session-Agent
+After=network-online.target systemd-logind.service
+Wants=network-online.target
+Requires=systemd-logind.service
+
+[Service]
+Type=simple
+User=ssh-session-agent
+Group=ssh-session-agent
+SupplementaryGroups=systemd-journal
+WorkingDirectory=@@APP_DIR@@
+Environment=PYTHONPATH=@@APP_DIR@@/src
+ExecStart=@@PYTHON_BIN@@ -m ssh_session_agent --config /etc/ssh-session-agent/config.json daemon
+Restart=on-failure
+RestartSec=10s
+TimeoutStopSec=20s
+UMask=0077
+
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+RestrictNamespaces=true
+LockPersonality=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+ReadWritePaths=/var/lib/ssh-session-agent
+ReadOnlyPaths=/etc/ssh-session-agent
+
+[Install]
+WantedBy=multi-user.target
